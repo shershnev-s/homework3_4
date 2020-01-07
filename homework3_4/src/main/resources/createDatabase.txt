@@ -1,0 +1,17 @@
+CREATE DATABASE `jd2_homework3-4`;
+USE jd2_homework3-4;
+CREATE TABLE film(
+id INT(11) NOT NULL PRIMARY KEY,
+name VARCHAR(30),
+duration INT(3),
+price INT(4));
+INSERT INTO film(id, name, duration, price) values(1, 'Deadpool', 60, 20);
+INSERT INTO film(id, name, duration, price) values(2, 'Green Book', 90, 15);
+INSERT INTO film(id, name, duration, price) values(3, 'War', 120, 10);
+INSERT INTO film(id, name, duration, price) values(4, 'Ghost buster', 60, 20);
+INSERT INTO film(id, name, duration, price) values(5, 'Friday 13', 60, 25);
+SELECT MAX(price) FROM film;
+DELETE FROM film WHERE price=(SELECT * FROM (SELECT MIN(price) FROM film) AS f1);
+UPDATE film SET name = 'Hot film!' WHERE price=(SELECT * FROM (SELECT MAX(price) FROM film) AS f1);
+DROP TABLE film;
+DROP DATABASE `jd2_homework3-4`;

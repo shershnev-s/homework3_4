@@ -4,10 +4,11 @@
 *.iws
 .idea/
 
-
 ### Other files ###
 out/
-
+*.log
+*.jar
+logs/
 
 ### Maven ###
 target/
